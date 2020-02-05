@@ -12,7 +12,7 @@
 	idtype = /obj/item/weapon/card/id/nanotrasen/ntrep
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
-
+	department = "Nanotrasen"
 	outfit_type = /decl/hierarchy/outfit/job/nanotrasen/representative
 
 	alt_titles = list("Nanotrasen Security" = /decl/hierarchy/outfit/job/nanotrasen/guard,
@@ -24,13 +24,10 @@
 	req_admin_notify = 1
 
 	hard_whitelisted = 1
+	clean_record_required = TRUE
 
 /datum/job/nanotrasen/get_job_email()	// whatever this is set to will be the job's communal email. should be persistent.
 	return using_map.rep_email
-
-/datum/job/nanotrasen/New()
-	..()
-	department = "[station_name()] Funds"
 
 
 /datum/job/nanotrasen/get_access()

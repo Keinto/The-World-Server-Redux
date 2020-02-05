@@ -45,6 +45,22 @@
 	update_strings()
 	return 1
 
+
+
+/obj/item/stack/material/update_reagents()
+	if(reagents)
+		reagents.reagent_list.Cut()
+		reagents.reagent_list = list()
+
+	if(!associated_reagents.len)
+		return
+	if(islist(associated_reagents))
+		var/divided = (reagents_per_unit / associated_reagents.len) * amount
+		for(var/R in associated_reagents)
+			reagents.add_reagent(R, divided)
+
+	return 1
+
 /obj/item/stack/material/get_material()
 	return material
 
